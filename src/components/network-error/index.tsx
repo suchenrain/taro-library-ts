@@ -7,7 +7,7 @@ type Props = {
   onClick: () => void;
 };
 const defaultProps = {
-  content: ''
+  content: '网络错误，点此刷新'
 };
 
 export default class NetworkError extends Taro.Component<Props> {
