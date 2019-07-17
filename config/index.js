@@ -7,8 +7,8 @@ const sassImporter = function (url) {
       file: path.resolve(__dirname, '..', 'node_modules', url.substr(1))
     }
   }
-
-  const reg = /^@styles\/(.*)/
+  // @/styles
+  const reg = /^@\/styles\/(.*)/
   return {
     file: reg.test(url) ? path.resolve(__dirname, '..', 'src/styles', url.match(reg)[1]) : url
   }
