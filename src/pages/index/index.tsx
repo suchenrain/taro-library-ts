@@ -5,7 +5,7 @@ import { connect } from '@tarojs/redux';
 
 import { add, minus, asyncAdd } from '@/actions/counter';
 
-import { Copyright } from '@/components';
+import { Copyright, NetworkError } from '@/components';
 
 import './index.scss';
 
@@ -97,6 +97,7 @@ class Index extends Component {
         <View>
           <Text>Hello, World</Text>
         </View>
+        <NetworkError onClick={() => {}} />
         <Copyright />
       </View>
     );

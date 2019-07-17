@@ -1,3 +1,4 @@
 import Copyright from './copyright';
+import NetworkError from './network-error';
 
-export { Copyright };
+export { Copyright, NetworkError };
