@@ -5,7 +5,7 @@ import { connect } from '@tarojs/redux';
 
 import { add, minus, asyncAdd } from '@/actions/counter';
 
-import { Copyright, NetworkError, Panel } from '@/components';
+import { Copyright, NetworkError, Panel, BookCard } from '@/components';
 
 import './index.scss';
 
@@ -80,6 +80,25 @@ class Index extends Component {
   componentDidHide() {}
 
   render() {
+    const bookData = {
+      id: 1,
+      title: 'The Ragged ',
+      isbn: 9909344911607,
+      publisher: '深森出版社',
+      pubdate: '1980-11-19',
+      author: '[哥]加西亚·马尔克斯',
+      translator: '邓秀兰',
+      binding: '精装',
+      price: 87.86,
+      pages: 253,
+      words: 5887,
+      tags: ['小说', '文学', '名著'],
+      score: 5.9,
+      review_num: 408,
+      image: 'http://dummyimage.com/218x300',
+      introduction:
+        '没我内准火度应别精发导导达在立。然机圆经素中活六派压月性且和何。千包向采常设派带照而又酸。算可先离状公提许断去放从车品许装还。次十利色广记层系实单头志金识道生消。天活情林代西部级性区天音元起能组。员构西定空平再验马大条共象二。林术指直重业比做市是他东队统。社斗己存度速离江时利高容都导色。并走调层连我化劳已也么数儿比基。'
+    };
     return (
       <View className="index">
         <Button className="add_btn" onClick={this.props.add}>
@@ -98,7 +117,16 @@ class Index extends Component {
           <Text>Hello, World</Text>
         </View>
         <NetworkError onClick={() => {}} />
-        <Panel className="panel--first">test</Panel>
+        <Panel className="panel--first" title={'i am panel Title'}>
+          child content
+        </Panel>
+        <BookCard
+          data={bookData}
+          showArrow={false}
+          onLongPress={function() {
+            console.log('long press');
+          }}
+        />
         <Copyright />
       </View>
     );
