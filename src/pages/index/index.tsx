@@ -5,7 +5,13 @@ import { connect } from '@tarojs/redux';
 
 import { add, minus, asyncAdd } from '@/actions/counter';
 
-import { Copyright, NetworkError, Panel, BookCard } from '@/components';
+import {
+  Copyright,
+  NetworkError,
+  Panel,
+  BookCard,
+  HorizonList
+} from '@/components';
 
 import './index.scss';
 
@@ -80,6 +86,103 @@ class Index extends Component {
   componentDidHide() {}
 
   render() {
+    const bookList = [
+      {
+        id: 62,
+        title: '绿皮书',
+        isbn: 9809534381066,
+        publisher: '深森出版社',
+        pubdate: '1970-07-30',
+        author: '崔磊',
+        translator: '罗秀兰',
+        binding: '精装',
+        price: 88.81,
+        pages: 75,
+        words: 6338,
+        tags: ['小说', '文学', '名著'],
+        score: 1.9,
+        review_num: 648,
+        image: 'http://dummyimage.com/218x300',
+        introduction:
+          '极见样收包东件种员东月开果质来每广。体二参大此人把且压识运铁何设路。一求命党维常么可听属族极能文报整。快育青金需可土铁了部百土。过求易此性型带太关维在线济革除而即。石增少提包基容带始处院格外求则心。达准内热意半角建积布布过养产构制。它指管例没叫受置九安通委色除江广不。政毛先会近被到空况我民取日地存重因手。间心花电需程回规包口论器反确造。气面育一天音百报群由起断听。习精织多之阶音就他划元种好放音极何不。选们感度对价却七学经等种它。没拉率米器厂带小能连省真形国品。'
+      },
+      {
+        id: 63,
+        title: '我们始终没有牵手旅行',
+        isbn: 9792023969828,
+        publisher: '深森出版社',
+        pubdate: '1996-05-30',
+        author: '[法]圣-埃克苏佩里',
+        translator: '韩平',
+        binding: '精装',
+        price: 95.86,
+        pages: 164,
+        words: 7069,
+        tags: ['小说', '文学', '名著'],
+        score: 3.1,
+        review_num: 390,
+        image: 'http://dummyimage.com/218x300',
+        introduction:
+          '情决亲集料便教老花低南计没风按。件制万行然多备报易场信例图。于主石约县就无又数月调可至图党。器三习角回青美因着水是装真来。管位度物规文权候流难导毛没任发。除要满社具务接革共七体按越划么。'
+      },
+      {
+        id: 64,
+        title: '小王子',
+        isbn: 9846209145651,
+        publisher: '深森出版社',
+        pubdate: '1985-10-06',
+        author: '程军',
+        translator: '李杰',
+        binding: '精装',
+        price: 88.11,
+        pages: 95,
+        words: 9700,
+        tags: ['小说', '文学', '名著'],
+        score: 6.5,
+        review_num: 97,
+        image: 'http://dummyimage.com/218x300',
+        introduction:
+          '离没统先并行山不养断通观什会资料。层道界别局示关么更此理细七不。立快非低装物交力电住级文因深正。思争当线存重或口认儿每提问极白。增状部斯空所此认人政低半。解约利科它系学参装代关照。'
+      },
+      {
+        id: 65,
+        title: '老人与海',
+        isbn: 9815941559669,
+        publisher: '深森出版社',
+        pubdate: '2018-02-12',
+        author: '[哥]加西亚·马尔克斯',
+        translator: '薛静',
+        binding: '精装',
+        price: 82.66,
+        pages: 181,
+        words: 3623,
+        tags: ['小说', '文学', '名著'],
+        score: 5.9,
+        review_num: 835,
+        image: 'http://dummyimage.com/218x300',
+        introduction:
+          '委给水外家取光战三强历其行号。近门往万而装维局然使原实少便。习过及联研热知全精其但受圆子。选特使给入心难马场作象条形确造能。领力们济文带导应员听志厂体须。导写级往空由利红向你铁装合车一他。收处太节果记育而革口专深对更市教非。织实本状天布认品准决应之听导。八志要结来具克争实只物各看科。参想风好单林品权信应意同市间便没选。'
+      },
+      {
+        id: 66,
+        title: 'The Trophy Failure',
+        isbn: 9861464483264,
+        publisher: '深森出版社',
+        pubdate: '1971-03-01',
+        author: '雷刚',
+        translator: '梁涛',
+        binding: '精装',
+        price: 95.38,
+        pages: 119,
+        words: 9347,
+        tags: ['小说', '文学', '名著'],
+        score: 5.9,
+        review_num: 165,
+        image: 'http://dummyimage.com/218x300',
+        introduction:
+          '白类比年书完属平历性算各厂。被局开以极我收想温况类后。今省能为素都府白断最半验划较达。代响十作每越老件基律叫别。共说象验众每系可构育农面程。住动象办局放节价打族部海养。江究平织见群准志满音构克区在间。并龙会得局路江规都数快机。集六影只米般面众目对院增资见名快。感级后写它自油议点量业化识般满术。见我还务角位起叫处类为求导准个派等。都经土具全再其火列取事内现。'
+      }
+    ];
     const bookData = {
       id: 1,
       title: 'The Ragged ',
@@ -118,7 +221,7 @@ class Index extends Component {
         </View>
         <NetworkError onClick={() => {}} />
         <Panel className="panel--first" title={'i am panel Title'}>
-          child content
+          <HorizonList data={bookList} />
         </Panel>
         <BookCard
           data={bookData}
@@ -127,6 +230,7 @@ class Index extends Component {
             console.log('long press');
           }}
         />
+
         <Copyright />
       </View>
     );
