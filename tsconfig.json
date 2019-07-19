@@ -23,7 +23,8 @@
     "paths": {
       "@/components": ["./src/components"],
       "@/actions/*": ["./src/actions/*"],
-      "@/styles/*": ["./src/styles/*"]
+      "@/styles/*": ["./src/styles/*"],
+      "@/constants/*": ["./src/constants/*"]
     }
   },
   "exclude": ["node_modules", "dist"],
