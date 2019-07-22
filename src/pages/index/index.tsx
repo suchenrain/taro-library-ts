@@ -10,7 +10,8 @@ import {
   NetworkError,
   Panel,
   BookCard,
-  HorizonList
+  HorizonList,
+  FakeSearchBar
 } from '@/components';
 
 import './index.scss';
@@ -223,13 +224,22 @@ class Index extends Component {
         <Panel className="panel--first" title={'i am panel Title'}>
           <HorizonList data={bookList} />
         </Panel>
-        <BookCard
-          data={bookData}
-          showArrow={false}
-          onLongPress={function() {
-            console.log('long press');
-          }}
-        />
+        <View>
+          <BookCard
+            data={bookData}
+            showArrow={false}
+            onLongPress={function() {
+              console.log('long press');
+            }}
+          />
+        </View>
+        <View>
+          <FakeSearchBar
+            onClick={() => {
+              console.log('fake search...');
+            }}
+          />
+        </View>
 
         <Copyright />
       </View>
