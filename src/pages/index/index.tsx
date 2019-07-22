@@ -11,7 +11,8 @@ import {
   Panel,
   BookCard,
   HorizonList,
-  FakeSearchBar
+  FakeSearchBar,
+  SearchBar
 } from '@/components';
 
 import './index.scss';
@@ -64,7 +65,7 @@ interface Index {
     }
   })
 )
-class Index extends Component {
+class Index extends Component<any, any> {
   /**
    * 指定config的类型声明为: Taro.Config
    *
@@ -75,7 +76,12 @@ class Index extends Component {
   config: Config = {
     navigationBarTitleText: '首页'
   };
-
+  constructor() {
+    super(...arguments);
+    this.state = {
+      value: ''
+    };
+  }
   componentWillReceiveProps(nextProps) {
     console.log(this.props, nextProps);
   }
@@ -85,6 +91,10 @@ class Index extends Component {
   componentDidShow() {}
 
   componentDidHide() {}
+
+  onChange = value => {
+    this.setState({ value });
+  };
 
   render() {
     const bookList = [
@@ -205,6 +215,12 @@ class Index extends Component {
     };
     return (
       <View className="index">
+        <SearchBar
+          focus
+          fixed
+          value={this.state.value}
+          onChange={this.onChange}
+        />
         <Button className="add_btn" onClick={this.props.add}>
           +
         </Button>
