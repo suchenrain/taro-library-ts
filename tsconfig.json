@@ -24,7 +24,8 @@
       "@/components": ["./src/components"],
       "@/actions/*": ["./src/actions/*"],
       "@/styles/*": ["./src/styles/*"],
-      "@/constants/*": ["./src/constants/*"]
+      "@/constants/*": ["./src/constants/*"],
+      "@/utils/*": ["./src/utils/*"]
     }
   },
   "exclude": ["node_modules", "dist"],
