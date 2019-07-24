@@ -26,7 +26,8 @@
       "@/styles/*": ["./src/styles/*"],
       "@/constants/*": ["./src/constants/*"],
       "@/utils/*": ["./src/utils/*"],
-      "@/service/*": ["./src/service/*"]
+      "@/service/*": ["./src/service/*"],
+      "@/reducers": ["./src/reducers"]
     }
   },
   "exclude": ["node_modules", "dist"],
