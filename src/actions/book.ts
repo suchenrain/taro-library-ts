@@ -1,13 +1,6 @@
 import * as BOOK from '@/constants/book-action-type';
-
 import BookAPI from '@/service/api';
-
-type BookType = 'HOT' | 'NEW' | 'RECOMMEND';
-
-type BaseAction = {
-  type: string;
-  payload: any;
-};
+import { BaseAction, BookType } from './common';
 
 /**
  * 不感兴趣 ♥
@@ -29,7 +22,7 @@ export const disfavorBookById = (
  */
 export const getNewBooks = () => {
   //返回函数，异步dispatch
-  return async (dispatch: (param: BaseAction) => void) => {
+  return async (dispatch: (param: BaseAction) => any) => {
     let result = await BookAPI.GET('/books/new');
     dispatch({
       type: BOOK.GET_NEW_BOOK,
@@ -43,7 +36,7 @@ export const getNewBooks = () => {
  */
 export const getHotBooks = () => {
   //返回函数，异步dispatch
-  return async (dispatch: (param: BaseAction) => void) => {
+  return async (dispatch: (param: BaseAction) => any) => {
     let result = await BookAPI.GET('/books/hot');
     dispatch({
       type: BOOK.GET_HOT_BOOK,
@@ -57,7 +50,7 @@ export const getHotBooks = () => {
  */
 export const getRecommendBooks = () => {
   //返回函数，异步dispatch
-  return async (dispatch: (param: BaseAction) => void) => {
+  return async (dispatch: (param: BaseAction) => any) => {
     let result = await BookAPI.GET('/books/recommend');
     dispatch({
       type: BOOK.GET_RECOMMEND_BOOK,
