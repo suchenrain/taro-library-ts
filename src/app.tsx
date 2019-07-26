@@ -30,6 +30,7 @@ class App extends Component {
       'pages/home/index',
       'pages/book-detail/index',
       'pages/index/index',
+      'pages/book-list/index'
     ],
     window: {
       backgroundTextStyle: 'light',
