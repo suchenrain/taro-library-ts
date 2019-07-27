@@ -63,7 +63,7 @@ export default class Search extends Taro.Component<Props, State> {
     this.onSearch(value);
   };
 
-  onClickTag = (name: any) => {
+  onClickTag = ({ name }: any) => {
     this.onSearch(name);
   };
 
@@ -76,11 +76,13 @@ export default class Search extends Taro.Component<Props, State> {
       searchResults: []
     });
     try {
-      let { data } = await BookAPI.GET(`/books?q=${value}`);
+      let data: any = await BookAPI.GET(`/books?q=${value}`);
+
+      //console.log(data);
       this.setState({
         isSearching: false,
         isError: false,
-        searchResults: data
+        searchResults: data || []
       });
     } catch (e) {
       this.setState({
